@@ -20,7 +20,7 @@ public class VcfFolderReader implements ContactReader {
         String[] vcfFiles = file.list((dir, name) -> name.toLowerCase().endsWith(".vcf"));
 
         for (String fileName : vcfFiles) {
-            new VcfReader(file.getAbsolutePath() + File.pathSeparator + fileName).readContact(consumer::onContactRead);
+            new VcfReader(file.getAbsolutePath() + File.separator + fileName).readContact(consumer::onContactRead);
         }
     }
 }

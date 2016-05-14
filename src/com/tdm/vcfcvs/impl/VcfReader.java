@@ -40,6 +40,12 @@ public class VcfReader implements ContactReader {
             phone = phone.substring(3);
         }
 
+        if (name == null) {
+            String nameWithExt = file.getName();
+            //get rid of file extension
+            name = nameWithExt.substring(0, nameWithExt.length() - 4);
+        }
+
         consumer.onContactRead(new Contact(name, phone));
         in.close();
     }
